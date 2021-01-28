@@ -1,12 +1,12 @@
 function permute(initialString) {
+
+  let permutedArray = [];
   //check first if it is a string
-  if (initialString.length === 0) return [];
+  if (initialString.length === 0) return permutedArray;
   if (initialString.length === 1) return initialString;
   if(typeof initialString !== "string"){
     return "Not a string to permute"
   }
-
-  let permutedArray = [];
 
   //iterates the string
   for (let i = 0; i < initialString.length; i++){
@@ -21,5 +21,4 @@ function permute(initialString) {
   return permutedArray;
 }
 
-console.log(permute('Gabi')) // ['abc', 'acb', 'bac', 
 module.exports = permute;
