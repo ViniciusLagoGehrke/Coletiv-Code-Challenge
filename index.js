@@ -2,5 +2,3 @@
 // check the Filho da Nuven video of REACT code interview
 
 //current exercise
-
-console.log(typeof(123))
