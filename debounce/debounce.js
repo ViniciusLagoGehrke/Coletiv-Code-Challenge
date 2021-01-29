@@ -1,4 +1,4 @@
-function debounce(invokedFunction, milliseconds, immediate) {
+function debounce(invokedFunction, milliseconds) {
   var timeout;
 
   return function executedFunction() {
@@ -7,18 +7,18 @@ function debounce(invokedFunction, milliseconds, immediate) {
 	    
     var later = function() {
       timeout = null;
-      if (!immediate) invokedFunction.apply(context, args);
+      invokedFunction.apply(context, args);
     };
 
-    var callNow = immediate && !timeout;
-	
     clearTimeout(timeout);
 
     timeout = setTimeout(later, milliseconds);
 	
-    if (callNow) invokedFunction.apply(context, args);
+    if (!timeout) invokedFunction.apply(context, args);
   };
 };
+
+module.exports = debounce;
 
 let a = () => console.log('foo')
 let b = debounce(a, 100)
