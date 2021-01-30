@@ -1,3 +1,6 @@
+/*write a function that returns an array of strings, containing every
+permutation of the given string.*/
+
 function permute(initialString) {
 
   let permutedArray = [];
@@ -22,3 +25,6 @@ function permute(initialString) {
 }
 
 module.exports = permute;
+
+permute('') // []
+permute('abc') // ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
