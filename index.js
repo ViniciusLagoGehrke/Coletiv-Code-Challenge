@@ -2,30 +2,29 @@
 // check the Filho da Nuven video of REACT code interview
 
 //current exercise
-function debounce(invokedFunction, milliseconds) {
-  var timeout;
+function palindrome(string){
+  let initialString = string;
 
-  return function executedFunction() {
-    var context = this;
-    var args = arguments;
-	    
-    var later = function() {
-      timeout = null;
-      invokedFunction.apply(context, args);
-    };
+  let arrayString = string.split("");
+  let backArray = [];
 
-    clearTimeout(timeout);
+  for(let i = 0; i < initialString.length; i++){
+    backArray.push(arrayString.pop())
+  }
 
-    timeout = setTimeout(later, milliseconds);
-	
-    if (!timeout) invokedFunction.apply(context, args);
-  };
-};
+  let finalString = backArray.join("")
 
-module.exports = debounce;
+  console.log('',initialString, '\n', finalString)
 
-let a = () => console.log('foo')
-let b = debounce(a, 100)
-b()
-b()
-b() // only this call should invoke a()
+  if(finalString == initialString){
+    return true
+  }
+
+  return false;
+}
+
+module.exports = palindrome;
+
+palindrome('racecar') // true
+palindrome('table') // false
+palindrome('A man, a plan, a canal. Panama') // false

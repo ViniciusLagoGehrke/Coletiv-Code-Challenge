@@ -1,33 +1,18 @@
 //current exercise jest test
-const debounce = require("./index");
-const sinon = require("sinon");//required to mock timeout
+const palindrome = require("./palindrome");
 
-let clock;
-
-beforeEach(() => {
-  clock = sinon.useFakeTimers();
+test("Checks if 'racecar' is a palindrome.", () => {
+    expect(palindrome('racecar')).toStrictEqual([]);
 });
 
-afterEach(() => {
-  clock.restore();
+test("Returns permutation of '1'.", () => {
+    expect(permute('1')).toStrictEqual('1');
 });
 
-test('debounce', () => {
-  const func = jest.fn();
-  const debouncedFunc = debounce(func, 100);
-
-  // Call it immediately
-  debouncedFunc();
-  expect(func).toHaveBeenCalledTimes(0); // func not called
-
-  // Call it several times with 50ms between each call
-  for(let i = 0; i < 10; i++) {
-    clock.tick(50);
-    debouncedFunc();
-  }
-  expect(func).toHaveBeenCalledTimes(0); // func not called
-
-  // wait 100ms
-  clock.tick(100);
-  expect(func).toHaveBeenCalledTimes(1);  // func called
+test("Returns permutation of 'abc'.", () => {
+    expect(permute('abc')).toStrictEqual(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']);
 });
+
+palindrome('racecar') // true
+palindrome('table') // false
+palindrome('A man, a plan, a canal. Panama') // false

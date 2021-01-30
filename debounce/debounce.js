@@ -1,3 +1,5 @@
+/*Implement the debounce function.*/
+
 function debounce(invokedFunction, milliseconds) {
   var timeout;
 
