@@ -1,4 +1,4 @@
-const debounce = require("./index");
+const debounce = require("./debounce");
 const sinon = require("sinon");//required to mock timeout
 
 let clock;
