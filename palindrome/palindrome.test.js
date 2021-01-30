@@ -1,32 +1,17 @@
 const palindrome = require("./palindrome");
 
 test("Checks if 'racecar' is a palindrome.", () => {
-    expect(palindrome('racecar')).toStrictEqual([]);
+    expect(palindrome('racecar')).toBe(true);
 });
 
-test("Returns permutation of '1'.", () => {
-    expect(permute('1')).toStrictEqual('1');
+test("Checks if 'table' is a palindrome.", () => {
+    expect(palindrome('table')).toBe(false);
 });
 
-test("Returns permutation of 'abc'.", () => {
-    expect(permute('abc')).toStrictEqual(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']);
+test("Checks if 'A man, a plan, a canal. Panama' is a palindrome.", () => {
+    expect(palindrome('A man, a plan, a canal. Panama')).toBe(false);
 });
 
-test("Returns permutation of '123'.", () => {
-    expect(permute('123')).toStrictEqual([ '123', '132', '213', '231', '312', '321' ]);
+test("Checks if 'otto' is a palindrome.", () => {
+    expect(palindrome('otto')).toBe(true);
 });
-
-test("Returns error when tries permutation of 123.", () => {
-    expect(permute(123)).toStrictEqual("Not a string to permute");
-});
-
-test("Returns permutation of 'Gabi'.", () => {
-    expect(permute('Gabi')).toStrictEqual([
-      'Gabi', 'Gaib',
-      'Gbai', 'aGbi',
-      'aGib', 'abGi',
-      'bGai', 'bGia',
-      'baGi', 'iGab',
-      'iGba', 'iaGb'
-    ]);
-})

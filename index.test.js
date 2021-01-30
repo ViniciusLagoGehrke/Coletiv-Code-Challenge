@@ -1,18 +1,24 @@
 //current exercise jest test
-const palindrome = require("./palindrome");
+const palindrome = require("./index");
 
 test("Checks if 'racecar' is a palindrome.", () => {
-    expect(palindrome('racecar')).toStrictEqual([]);
+    expect(palindrome('racecar')).toBe(true);
 });
 
-test("Returns permutation of '1'.", () => {
-    expect(permute('1')).toStrictEqual('1');
+test("Checks if 'table' is a palindrome.", () => {
+    expect(palindrome('table')).toBe(false);
 });
 
-test("Returns permutation of 'abc'.", () => {
-    expect(permute('abc')).toStrictEqual(['abc', 'acb', 'bac', 'bca', 'cab', 'cba']);
+test("Checks if 'A man, a plan, a canal. Panama' is a palindrome.", () => {
+    expect(palindrome('A man, a plan, a canal. Panama')).toBe(false);
 });
 
-palindrome('racecar') // true
+test("Checks if 'otto' is a palindrome.", () => {
+    expect(palindrome('otto')).toBe(true);
+});
+
+/*
+palindrome('rtrue') // true
 palindrome('table') // false
 palindrome('A man, a plan, a canal. Panama') // false
+*/
